@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simphiwe Mbaxa — IT Support & Software Development</title>
+<meta name="description" content="Simphiwe Mbaxa — IT Helpdesk/Service Desk Technician  Service desk experience, diploma in software development, based in Johannesburg.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink-900: #12181F;
+    --ink-800: #1B232C;
+    --ink-750: #212B35;
+    --ink-700: #2C3743;
+    --paper: #EDEAE2;
+    --paper-dim: #C7CBD1;
+    --slate: #8B98A5;
+    --amber: #E8A33D;
+    --amber-dim: #4A3B22;
+    --green: #5FAE82;
+    --green-dim: #23352C;
+    --radius-card: 4px;
+    --max-w: 1120px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--ink-900);
+    color: var(--paper);
+    font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .mono {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  }
+
+  a { color: inherit; }
+
+  h1, h2, h3 { font-family: 'IBM Plex Sans', sans-serif; margin: 0; }
+
+  .wrap {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- Skip link ---------- */
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--amber);
+    color: var(--ink-900);
+    padding: 10px 16px;
+    z-index: 200;
+    font-weight: 600;
+  }
+  .skip-link:focus { left: 12px; top: 12px; }
+
+  /* ---------- Header ---------- */
+  header.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(18, 24, 31, 0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--ink-700);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--paper);
+    letter-spacing: 0.01em;
+  }
+  .brand-mark {
+    width: 34px; height: 34px;
+    border: 1.5px solid var(--amber);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--amber);
+    flex-shrink: 0;
+  }
+  nav.primary-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  nav.primary-nav a {
+    text-decoration: none;
+    color: var(--paper-dim);
+    font-size: 14.5px;
+    transition: color 0.15s ease;
+  }
+  nav.primary-nav a:hover,
+  nav.primary-nav a:focus-visible { color: var(--paper); }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: var(--radius-card);
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 600;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-amber {
+    background: var(--amber);
+    color: var(--ink-900);
+  }
+  .btn-amber:hover { background: #f0b258; }
+  .btn-outline {
+    background: transparent;
+    color: var(--paper);
+    border-color: var(--ink-700);
+  }
+  .btn-outline:hover { border-color: var(--amber); }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 1px solid var(--ink-700);
+    border-radius: var(--radius-card);
+    color: var(--paper);
+    padding: 8px 10px;
+    cursor: pointer;
+  }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--amber);
+    outline-offset: 2px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 96px 0 84px;
+    border-bottom: 1px solid var(--ink-700);
+  }
+  .status-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 13px;
+    color: var(--green);
+    padding: 6px 12px 6px 10px;
+    border: 1px solid var(--green-dim);
+    background: var(--green-dim);
+    border-radius: 999px;
+    margin-bottom: 28px;
+  }
+  .status-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(95,174,130,0.55); }
+    50% { box-shadow: 0 0 0 6px rgba(95,174,130,0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .status-dot { animation: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    max-width: 14ch;
+    line-height: 1.08;
+  }
+  .hero .role {
+    margin-top: 14px;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--slate);
+    max-width: 32ch;
+  }
+  .hero p.lede {
+    margin-top: 26px;
+    max-width: 56ch;
+    font-size: 1.05rem;
+    color: var(--paper-dim);
+  }
+  .hero .actions {
+    margin-top: 34px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  /* ---------- Sections ---------- */
+  section { padding: 76px 0; border-bottom: 1px solid var(--ink-700); }
+  section:last-of-type { border-bottom: none; }
+
+  .section-head {
+    margin-bottom: 40px;
+    max-width: 60ch;
+  }
+  .section-head h2 {
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    font-weight: 700;
+  }
+  .section-head p {
+    margin-top: 10px;
+    color: var(--slate);
+    font-size: 1rem;
+  }
+
+  /* ---------- About ---------- */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .about-grid p {
+    color: var(--paper-dim);
+    font-size: 1.02rem;
+    max-width: 58ch;
+  }
+  .fact-panel {
+    background: var(--ink-800);
+    border: 1px solid var(--ink-700);
+    border-radius: var(--radius-card);
+    padding: 22px 24px;
+  }
+  .fact-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--ink-700);
+    font-size: 14px;
+  }
+  .fact-row:last-child { border-bottom: none; }
+  .fact-row .k { color: var(--slate); }
+  .fact-row .v { color: var(--paper); text-align: right; }
+
+  /* ---------- Skills ---------- */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+  .skill-group h3 {
+    font-size: 1.02rem;
+    color: var(--amber);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .skill-list { list-style: none; margin: 0; padding: 0; }
+  .skill-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--ink-700);
+    color: var(--paper-dim);
+    font-size: 15px;
+  }
+  .skill-list li::before {
+    content: "";
+    width: 6px; height: 6px;
+    background: var(--amber);
+    flex-shrink: 0;
+  }
+
+  /* ---------- Projects ---------- */
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .ticket-card {
+    background: var(--ink-800);
+    border: 1px solid var(--ink-700);
+    border-radius: var(--radius-card);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .ticket-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .ticket-id {
+    color: var(--slate);
+    font-size: 12.5px;
+    letter-spacing: 0.03em;
+  }
+  .ticket-status {
+    font-size: 11.5px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: var(--green-dim);
+    color: var(--green);
+    letter-spacing: 0.02em;
+  }
+  .ticket-card h3 {
+    font-size: 1.12rem;
+    font-weight: 600;
+  }
+  .ticket-tag {
+    color: var(--amber);
+    font-size: 13px;
+  }
+  .ticket-card p {
+    color: var(--paper-dim);
+    font-size: 14.5px;
+  }
+  .tech-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 6px;
+  }
+  .tech-chip {
+    font-size: 12px;
+    color: var(--slate);
+    border: 1px solid var(--ink-700);
+    padding: 4px 9px;
+    border-radius: var(--radius-card);
+  }
+
+  /* ---------- Timeline (Education) ---------- */
+  .timeline { display: flex; flex-direction: column; }
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 24px;
+    padding: 22px 0;
+    border-top: 1px solid var(--ink-700);
+  }
+  .timeline-item:first-child { border-top: none; }
+  .timeline-date {
+    color: var(--slate);
+    font-size: 13.5px;
+    padding-top: 3px;
+  }
+  .timeline-item h3 { font-size: 1.08rem; font-weight: 600; }
+  .timeline-item .org { color: var(--amber); font-size: 14px; margin-top: 4px; }
+  .timeline-item ul { margin: 10px 0 0; padding-left: 18px; color: var(--paper-dim); font-size: 14.5px; }
+  .timeline-item li { margin-bottom: 5px; }
+
+  /* ---------- Certifications ---------- */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .cert-card {
+    border: 1px solid var(--ink-700);
+    border-radius: var(--radius-card);
+    padding: 20px 22px;
+    background: var(--ink-800);
+  }
+  .cert-card h3 { font-size: 1rem; font-weight: 600; }
+  .cert-card .issuer { color: var(--slate); font-size: 13.5px; margin-top: 6px; }
+  .cert-card .level { color: var(--amber); font-size: 12.5px; margin-top: 10px; }
+
+  /* ---------- Contact ---------- */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .contact-card {
+    border: 1px solid var(--ink-700);
+    border-radius: var(--radius-card);
+    padding: 22px;
+    background: var(--ink-800);
+    text-decoration: none;
+    color: var(--paper);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: border-color 0.15s ease;
+  }
+  .contact-card:hover, .contact-card:focus-visible { border-color: var(--amber); }
+  .contact-card .label {
+    color: var(--slate);
+    font-size: 12px;
+    letter-spacing: 0.02em;
+  }
+  .contact-card .value { font-size: 15px; word-break: break-word; }
+  .contact-cv {
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .contact-cv p { color: var(--slate); font-size: 14px; margin: 0; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding: 32px 0 48px;
+    color: var(--slate);
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px) {
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .skills-grid { grid-template-columns: 1fr; gap: 32px; }
+    .project-grid { grid-template-columns: 1fr; }
+    .cert-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .timeline-item { grid-template-columns: 1fr; gap: 6px; }
+  }
+
+  @media (max-width: 720px) {
+    nav.primary-nav {
+      position: fixed;
+      inset: 64px 0 0 0;
+      background: var(--ink-900);
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 24px 28px;
+      gap: 4px;
+      transform: translateX(100%);
+      transition: transform 0.2s ease;
+      overflow-y: auto;
+    }
+    nav.primary-nav.open { transform: translateX(0); }
+    nav.primary-nav a {
+      width: 100%;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--ink-700);
+      font-size: 16px;
+    }
+    nav.primary-nav .btn { margin-top: 16px; width: 100%; justify-content: center; }
+    .nav-toggle { display: inline-flex; }
+    .hero { padding: 64px 0 56px; }
+    section { padding: 56px 0; }
+  }
+
+  @media (max-width: 420px) {
+    .wrap { padding: 0 18px; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#home" class="brand">
+      <span class="brand-mark" aria-hidden="true">SM</span>
+      Simphiwe Mbaxa
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation menu">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M2 4.5H16M2 9H16M2 13.5H16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <nav class="primary-nav" id="primaryNav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+      <a href="assets/simphiwembaxaujupdated.pdf" class="btn btn-amber" download>Download CV</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HOME -->
+  <section id="home" class="hero">
+    <div class="wrap">
+      <span class="status-line mono"><span class="status-dot" aria-hidden="true"></span>Open to service desk & IT support roles</span>
+      <h1>Simphiwe Mbaxa</h1>
+      <p class="role">IT Support Technician working toward software development.</p>
+      <p class="lede">I keep systems running and people unblocked. Three years on a university helpdesk taught me how to diagnose problems fast and explain fixes in plain language. I'm building on a diploma in software development to move deeper into the systems I support.</p>
+      <div class="actions">
+        <a href="assets/simphiwembaxaujupdated.pdf" class="btn btn-amber" download>Download CV</a>
+        <a href="mailto:gugumbaxa@gmail.com" class="btn btn-outline">Email me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>About</h2>
+      </div>
+      <div class="about-grid">
+        <p>I'm an IT support technician based in Johannesburg, currently open to service desk and helpdesk roles. Alongside three years of hands-on support experience, I hold a diploma in software development covering databases, web development, security, and programming. I like the parts of IT work most people don't see: figuring out why something broke, documenting the fix, and making sure it doesn't happen again.</p>
+        <div class="fact-panel">
+          <div class="fact-row"><span class="k">Location</span><span class="v">Johannesburg, South Africa</span></div>
+          <div class="fact-row"><span class="k">Focus</span><span class="v">Service desk &amp; IT support</span></div>
+          <div class="fact-row"><span class="k">Studying</span><span class="v">Software Development (Diploma)</span></div>
+          <div class="fact-row"><span class="k">Availability</span><span class="v">Immediate</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Skills</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Technical</h3>
+          <ul class="skill-list">
+            <li>Service desk &amp; 1st-line support</li>
+            <li>Troubleshooting &amp; incident resolution</li>
+            <li>Microsoft Office</li>
+            <li>Relational databases &amp; SQL</li>
+            <li>Web development (HTML, CSS, JavaScript)</li>
+            <li>Applied programming</li>
+            <li>Information security fundamentals</li>
+            <li>Software quality &amp; testing</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Soft skills</h3>
+          <ul class="skill-list">
+            <li>Clear written &amp; verbal communication</li>
+            <li>Working well under pressure</li>
+            <li>Collaboration</li>
+            <li>Customer-facing support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Coursework projects</h2>
+        <p>Practical work from my diploma in software development. I'm looking to build out real-world projects next — get in touch if you have something in mind.</p>
+      </div>
+      <div class="project-grid">
+
+        <div class="ticket-card">
+          <div class="ticket-top">
+            <span class="ticket-id mono">WIL-003</span>
+            <span class="ticket-status mono">Completed</span>
+          </div>
+          <div>
+            <h3>Systems support in a live environment</h3>
+            <span class="ticket-tag mono">Work Integrated Learning 3</span>
+          </div>
+          <p>Applied helpdesk and systems-support skills in a supervised, real-world setting — logging issues, testing fixes, and following through until resolution.</p>
+          <div class="tech-row">
+            <span class="tech-chip">Ticket workflows</span>
+            <span class="tech-chip">Windows support</span>
+            <span class="tech-chip">Documentation</span>
+          </div>
+        </div>
+
+        <div class="ticket-card">
+          <div class="ticket-top">
+            <span class="ticket-id mono">DB-014</span>
+            <span class="ticket-status mono">Completed</span>
+          </div>
+          <div>
+            <h3>Relational database design</h3>
+            <span class="ticket-tag mono">Advanced Databases</span>
+          </div>
+          <p>Designed and queried a relational database from a set of business requirements, applying normalization and indexing to keep it fast and consistent.</p>
+          <div class="tech-row">
+            <span class="tech-chip">SQL</span>
+            <span class="tech-chip">MySQL</span>
+            <span class="tech-chip">ER modelling</span>
+          </div>
+        </div>
+
+        <div class="ticket-card">
+          <div class="ticket-top">
+            <span class="ticket-id mono">WEB-022</span>
+            <span class="ticket-status mono">Completed</span>
+          </div>
+          <div>
+            <h3>Front-end web build</h3>
+            <span class="ticket-tag mono">Web Development (Intermediate)</span>
+          </div>
+          <p>Built a multi-page website from a design brief, structuring content with semantic HTML and styling it to be responsive across devices.</p>
+          <div class="tech-row">
+            <span class="tech-chip">HTML</span>
+            <span class="tech-chip">CSS</span>
+            <span class="tech-chip">JavaScript</span>
+          </div>
+        </div>
+
+        <div class="ticket-card">
+          <div class="ticket-top">
+            <span class="ticket-id mono">SEC-007</span>
+            <span class="ticket-status mono">Completed</span>
+          </div>
+          <div>
+            <h3>Security &amp; quality fundamentals</h3>
+            <span class="ticket-tag mono">Information Security · Software Quality &amp; Testing</span>
+          </div>
+          <p>Worked through security fundamentals and testing methodology — learning to spot common vulnerabilities and write test cases that catch issues early.</p>
+          <div class="tech-row">
+            <span class="tech-chip">Security fundamentals</span>
+            <span class="tech-chip">Manual testing</span>
+            <span class="tech-chip">Open-source coding</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Education</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-date mono">2020 – 2023</span>
+          <div>
+            <h3>Diploma in Information Technology (Software Development)</h3>
+            <p class="org">Rosebank College · NQF Level 6</p>
+            <ul>
+              <li>Advanced Databases &amp; Applied Programming</li>
+              <li>Information Security</li>
+              <li>Open-Source Coding (Introduction &amp; Intermediate)</li>
+              <li>Software Quality &amp; Testing</li>
+              <li>Web Development (Intermediate)</li>
+              <li>Work Integrated Learning 3</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date mono">2019</span>
+          <div>
+            <h3>National Senior Certificate (Grade 12)</h3>
+            <p class="org">Bhukulani Secondary School · Commercial subjects</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Certifications</h2>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-card">
+          <h3>Diploma in Software Development</h3>
+          <p class="issuer">Rosebank College</p>
+          <p class="level mono">NQF Level 6</p>
+        </div>
+        <div class="cert-card">
+          <h3>Systems Support</h3>
+          <p class="issuer">Rosebank College</p>
+          <p class="level mono">NQF Level 5</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Work experience</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-date mono">3 years</span>
+          <div>
+            <h3>Helpdesk Technician / IT Intern</h3>
+            <p class="org">University of Johannesburg — Stanley Campus</p>
+            <ul>
+              <li>Provided 1st-line troubleshooting and technical support as part of the campus helpdesk team.</li>
+              <li>Delivered front-line administrative and operational support to staff and students.</li>
+              <li>Logged, tracked, and resolved incidents through to completion.</li>
+              <li>Reference available on request.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p>Open to service desk, helpdesk, and IT support roles in and around Johannesburg.</p>
+      </div>
+      <div class="contact-grid">
+        <a class="contact-card" href="mailto:gugumbaxa@gmail.com">
+          <span class="label mono">EMAIL</span>
+          <span class="value">gugumbaxa@gmail.com</span>
+        </a>
+        <a class="contact-card" href="https://www.linkedin.com/in/simphiwe-mbaxa-1a224b242" target="_blank" rel="noopener noreferrer">
+          <span class="label mono">LINKEDIN</span>
+          <span class="value">linkedin.com/in/simphiwe-mbaxa</span>
+        </a>
+        <a class="contact-card" href="https://github.com/zhanushadow" target="_blank" rel="noopener noreferrer">
+          <span class="label mono">Github</span>
+          <span class="value">github.com/zhanushadow</span>
+        </a>
+        <div class="contact-card" style="cursor:default;">
+          <span class="label mono">LOCATION</span>
+          <span class="value">Johannesburg, South Africa</span>                                                       
+        </div>
+      </div>
+      <div class="contact-cv">
+        <a href="assets/Simphiwe_Mbaxa_CV.pdf" class="btn btn-amber" download>Download CV (PDF)</a>
+        <p>Full CV including detailed experience and qualifications.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Simphiwe Mbaxa</span>
+  <span class="mono">Johannesburg, South Africa</span>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('primaryNav');
+  toggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+</body>
+</html>
